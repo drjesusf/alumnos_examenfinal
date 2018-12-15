@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.ads.examenfinal.student.application.dtos.StudentDto;
+import com.ads.examenfinal.student.domain.contracts.CalculatorRule;
 import com.ads.examenfinal.student.domain.contracts.StudentRepository;
 import com.ads.examenfinal.student.domain.entites.Student;
 
@@ -18,7 +19,8 @@ import seedWork.Notification;
 public class StudentApplicationService {
 	@Autowired
 	StudentRepository studentRepository;
-	
+	@Autowired
+	CalculatorRule calculatorRules;
 	@Autowired
 	private ModelMapper mapper;
 	
@@ -43,8 +45,8 @@ public class StudentApplicationService {
 	public long calculateMontoBeca(int studentId) {
 		// TODO Auto-generated method stub
 		Student student = this.studentRepository.getById(studentId);
-		
-		return 0;
+		long montoBeca = calculatorRules.calculateMontoBeca(student);
+		return montoBeca;
 	}
 	
 }
