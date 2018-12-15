@@ -4,12 +4,11 @@
         "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <hibernate-mapping package="com.ads.examenfinal.domain.entities.Student">
 	<class name="Student" table="student">
-        <id name="id" column="bank_student_id">
+        <id name="id" column="student_id">
             <generator class="native"/>
         </id>
-        <property name="number" column="number" />
-        <property name="balance" column="balance" />
-        <property name="isLocked" column="locked" />
+        <property name="firstName" column="firstName" />
+        <property name="lastName" column="lastName" />
        <many-to-one name="customer" class="com.ads.examenfinal.domain.student.entities.Student" column="student_id" not-null="true"/>
        
     </class> 
